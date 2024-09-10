@@ -41,7 +41,7 @@ except Exception as e:
 # Crear tabla si no existe en PostgreSQL
 try:
     cursor.execute("""
-    CREATE TABLE IF NOT EXISTS transactions_mary_jaramillo (
+    CREATE TABLE IF NOT EXISTS transactions_maryjaramillo (
         id SERIAL PRIMARY KEY,
         transaction_json JSONB,
         logistic_regression_fraud REAL,
@@ -89,7 +89,7 @@ consumer_conf = {
 }
 
 consumer = Consumer(consumer_conf)
-consumer.subscribe(['transactions_mary_jaramillo'])
+consumer.subscribe(['transactions_maryjaramillo'])
 
 # Función para consumir el mensaje desde Kafka
 async def consume_from_kafka():
@@ -160,7 +160,7 @@ async def process_transaction(transaction_data):
 
         # Almacenar la transacción en la base de datos
         cursor.execute("""
-            INSERT INTO transactions_mary_jaramillo(
+            INSERT INTO transactions_maryjaramillo(
                 transaction_json,
                 logistic_regression_fraud, logistic_regression_non_fraud,
                 kneighbors_fraud, kneighbors_non_fraud,
