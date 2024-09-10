@@ -1,6 +1,9 @@
 fastapi
 uvicorn
-confluent-kafka
-faker
-numpy
+psycopg2-binary
+pandas
+scikit-learn
+joblib
 python-dotenv
+confluent-kafka
+tensorflow
